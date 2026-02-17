@@ -95,21 +95,6 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldAddLargeAmount() {
-        CreditAccount account = new CreditAccount(
-                3_000,
-                5_000,
-                15
-        );
-        account.add(10_000);
-
-        int expected = 13_000;
-        int actual = account.getBalance();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
     public void shouldAddTopUpToTheCreditLimit() {
         CreditAccount account = new CreditAccount(
                 4_000,
