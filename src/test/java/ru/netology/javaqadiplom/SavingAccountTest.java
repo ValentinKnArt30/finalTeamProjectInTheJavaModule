@@ -20,48 +20,53 @@ public class SavingAccountTest {
     }
 
     @Test
-    public void negativeInitialBalance(){
+    public void negativeInitialBalance() {
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> new SavingAccount(-2_000, 3_000, 3_500, 10)
         );
     }
+
     @Test
-    public void negativeMinBalance(){
+    public void negativeMinBalance() {
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> new SavingAccount(2_000, -3_000, 3_500, 10)
         );
     }
+
     @Test
-    public void negativeMaxBalance(){
+    public void negativeMaxBalance() {
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> new SavingAccount(2_000, 3_000, -3_500, 10)
         );
     }
+
     @Test
-    public void negativeRate(){
+    public void negativeRate() {
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> new SavingAccount(2_000, 3_000, 3_500, -10)
         );
 
     }
+
     @Test
-    public void minMoreMax(){
+    public void minMoreMax() {
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> new SavingAccount(2_000, 3_500, 3_000, 10)
         );
 
     }
+
     @Test
-    public void negativeAmount(){
+    public void negativeAmount() {
         SavingAccount account = new SavingAccount(
                 2_000,
-                3_500,
-                4000,
+                500,
+                4_000,
                 10
         );
         account.pay(-10);
@@ -71,12 +76,13 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void negativeAmountFalse(){
+    public void negativeAmountFalse() {
         SavingAccount account = new SavingAccount(
                 2_000,
-                3_500,
-                4000,
+                500,
+                4_000,
                 10
         );
         boolean result = account.pay(-10);
@@ -85,12 +91,13 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void amountZero(){
+    public void amountZero() {
         SavingAccount account = new SavingAccount(
                 2_000,
-                3_500,
-                4000,
+                500,
+                4_000,
                 10
         );
         account.pay(0);
@@ -100,12 +107,13 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void amountZeroFalse(){
+    public void amountZeroFalse() {
         SavingAccount account = new SavingAccount(
                 2_000,
-                3_500,
-                4000,
+                500,
+                4_000,
                 10
         );
         boolean result = account.pay(0);
@@ -114,8 +122,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void payBalanceEqualsMin(){
+    public void payBalanceEqualsMin() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -129,8 +138,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void payBalanceEqualsMinFalse(){
+    public void payBalanceEqualsMinFalse() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -143,8 +153,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void payBalanceLessMin(){
+    public void payBalanceLessMin() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -155,11 +166,11 @@ public class SavingAccountTest {
 
         int expected = 2_000;
         int actual = account.getBalance();
-
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void payBalanceLessMinFalse(){
+    public void payBalanceLessMinFalse() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -172,8 +183,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void payBalancePositive(){
+    public void payBalancePositive() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -187,8 +199,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void payBalancePositiveTrue(){
+    public void payBalancePositiveTrue() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -201,8 +214,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void addAmountNegative(){
+    public void addAmountNegative() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -216,8 +230,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void addAmountNegativeFalse(){
+    public void addAmountNegativeFalse() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -230,8 +245,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void addAmountZero(){
+    public void addAmountZero() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -245,8 +261,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void addAmountZeroFalse(){
+    public void addAmountZeroFalse() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -259,8 +276,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void addBalanceEqualsMax(){
+    public void addBalanceEqualsMax() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -274,8 +292,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void addBalanceEqualsMaxTrue(){
+    public void addBalanceEqualsMaxTrue() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -288,8 +307,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void addBalanceMoreMax(){
+    public void addBalanceMoreMax() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -303,8 +323,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void addBalanceMoreMaxFalse(){
+    public void addBalanceMoreMaxFalse() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -314,11 +335,11 @@ public class SavingAccountTest {
         boolean result = account.add(3_000);
         boolean actual = result;
         boolean expected = false;
-
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void addBalanceLessMax(){
+    public void addBalanceLessMax() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -332,8 +353,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void addBalanceLessMaxTrue(){
+    public void addBalanceLessMaxTrue() {
         SavingAccount account = new SavingAccount(
                 2_000,
                 500,
@@ -348,10 +370,10 @@ public class SavingAccountTest {
     }
 
     @Test
-    public void  yearChangeBalanceZero(){
+    public void yearChangeBalanceZero() {
         SavingAccount account = new SavingAccount(
                 0,
-                500,
+                0,
                 4_000,
                 10
         );
@@ -360,25 +382,27 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void  yearChangeBalanceEquals50(){
+    public void yearChangeBalanceEquals50() {
         SavingAccount account = new SavingAccount(
+                100,
                 50,
                 500,
-                4_000,
                 10
         );
-        int expected = 7;
+        int expected = 10;
         int actual = account.yearChange();
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void  yearChangeBalanceMore100(){
+    public void yearChangeBalanceMore100() {
         SavingAccount account = new SavingAccount(
                 150,
-                500,
-                4_000,
+                50,
+                4000,
                 10
         );
         int expected = 15;
@@ -386,12 +410,13 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void  yearChangeRateZero(){
+    public void yearChangeRateZero() {
         SavingAccount account = new SavingAccount(
                 150,
-                500,
-                4_000,
+                50,
+                4000,
                 0
         );
         int expected = 0;
@@ -399,12 +424,13 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
-    public void  yearChangePositive(){
+    public void yearChangePositive() {
         SavingAccount account = new SavingAccount(
                 100,
-                500,
-                4_000,
+                50,
+                4000,
                 20
         );
         int expected = 20;
@@ -412,7 +438,4 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
-
-
 }
