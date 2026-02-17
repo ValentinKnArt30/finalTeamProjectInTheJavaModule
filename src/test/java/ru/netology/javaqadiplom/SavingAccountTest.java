@@ -147,7 +147,7 @@ public class SavingAccountTest {
                 4000,
                 10
         );
-        boolean result = account.pay(500);
+        boolean result = account.pay(1500);
         boolean actual = result;
         boolean expected = true;
 
@@ -386,12 +386,12 @@ public class SavingAccountTest {
     @Test
     public void yearChangeBalanceEquals50() {
         SavingAccount account = new SavingAccount(
-                100,
+                50,
                 50,
                 500,
-                10
+                15
         );
-        int expected = 10;
+        int expected = 7;
         int actual = account.yearChange();
 
         Assertions.assertEquals(expected, actual);
